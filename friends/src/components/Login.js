@@ -25,7 +25,7 @@ class Login extends React.Component {
       isFetching: true,
     });
     axiosWithAuth()
-      .post("/login", this.state.credentials)
+      .post("/api/login", this.state.credentials)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.payload);
@@ -33,7 +33,7 @@ class Login extends React.Component {
       })
       .catch((err) => {
         console.error(err.message);
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("token");
       });
   };
 

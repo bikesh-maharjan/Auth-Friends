@@ -9,7 +9,7 @@ function FriendsList(props) {
   const [friends, setFriends] = useState([]);
   const getData = () => {
     axiosWithAuth()
-      .get("/friends")
+      .get("/api/friends/")
       .then((res) => {
         setFriends(res.data);
         console.log(res.data);
@@ -27,7 +27,7 @@ function FriendsList(props) {
 
       <div>
         {friends.map((friend) => (
-          <div>
+          <div key={friend.id}>
             <Friends name={friend.name} age={friend.age} email={friend.email} />
           </div>
         ))}
